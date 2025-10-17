@@ -30,6 +30,14 @@ public class PassengerService {
         store.add(p);
         return p;
     }
+    public Passenger delete(String id) {
+        Optional<Passenger> p = findById(id);
+        if (p.isPresent()) {
+            store.remove(p.get());
+            return p.get();
+        }
+        throw new IllegalStateException("Passenger with id " + id + " does not exist");
+    }
    public Optional<Passenger> update(Passenger p) {
         if (findById(p.getPassengerId()).isPresent()) {
             throw new IllegalStateException("Passenger with id " + p.getPassengerId() + " already exists");
