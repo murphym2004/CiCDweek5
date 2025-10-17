@@ -36,12 +36,13 @@ public class PassengerServiceTest {
                 .Email("b@atu.ie")
                 .build());
 
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(IllegalStateException.class, () ->
             service.create(Passenger.builder()
                     .PassengerId("p2")
-                    .Name("bobby")
-                    .Email("bob@ex.com")
+                    .Name("bob")
+                    .Email("b@atu.ie")
                     .build()));
 
     }
+
 }
