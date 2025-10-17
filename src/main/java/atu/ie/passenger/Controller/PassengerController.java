@@ -52,6 +52,7 @@ public class PassengerController {
     }
 
 }
+
     @PutMapping("/updateName")
     public ResponseEntity<Passenger> update(@Valid @RequestBody Passenger p) {
         Optional<Passenger> maybe = service.findById(p.getPassengerId());
