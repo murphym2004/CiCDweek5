@@ -40,6 +40,7 @@ public class PassengerController {
                 .created(URI.create("/api/passenger/"+ created.getPassengerId()))
                 .body(created);
 }
+
 @DeleteMapping("/Delete")
     public ResponseEntity<?> delete(@Valid @RequestBody Passenger p) {
     Optional<Passenger> maybe = service.findById(p.getPassengerId());
