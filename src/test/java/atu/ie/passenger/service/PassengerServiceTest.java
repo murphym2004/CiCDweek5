@@ -44,5 +44,18 @@ public class PassengerServiceTest {
                     .build()));
 
     }
+@Test
+    void deleteExistingPassengerRemovesIt() {
+    Passenger p = Passenger.builder()
+            .PassengerId("p3")
+            .Name("aram")
+            .Email("d@atu.ie")
+            .build();
+    service.create(p);
+    Passenger deleted = service.delete("p3");
+    assertEquals("aram", deleted.getName());
+    assertTrue(service.findById("p3").isEmpty());
+}
 
 }
+
