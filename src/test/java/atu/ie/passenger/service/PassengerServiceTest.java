@@ -56,6 +56,23 @@ public class PassengerServiceTest {
     assertEquals("aram", deleted.getName());
     assertTrue(service.findById("p3").isEmpty());
 }
+@Test
+    void UpdatePassengerThrows(){
+        Passenger exists = Passenger.builder()
+                .PassengerId("p4")
+                .Name("jo")
+                .Email("jo@atu.ie")
+                .build();
+        service.create(exists);
+        Passenger Update = Passenger.builder()
+                .PassengerId("p4")
+                .Name("mikey")
+                .Email("mikey@atu.ie")
+                .build();
+        assertThrows(IllegalStateException.class, () ->
+        service.update(Update));
 
+
+}
 }
 
