@@ -38,4 +38,11 @@ public class PassengerService {
         }
         throw new IllegalStateException("Passenger with id " + id + " does not exist");
     }
+   public Optional<Passenger> update(Passenger p) {
+        if (findById(p.getPassengerId()).isPresent()) {
+            throw new IllegalStateException("Passenger with id " + p.getPassengerId() + " already exists");
+        }
+        store.add(p);
+        return Optional.of(p);
+   }
 }

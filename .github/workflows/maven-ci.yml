@@ -14,4 +14,4 @@ on:
            java-version: '21'
            cache: maven
         - name: build & Test
-          run: mvn -B -ntp -DskipTests=false clean verify
+          run: mvn clean verify
