@@ -43,6 +43,6 @@ public class PassengerService {
             throw new IllegalStateException("Passenger with id " + p.getPassengerId() + " already exists");
         }
         store.add(p);
-        return Optional.of(p);
+        return Optional.of(p) ;
    }
 }
